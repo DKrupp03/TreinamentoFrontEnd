@@ -1,0 +1,61 @@
+<div ng-controller="PostsController">
+    <div class="card text-center text-white bg-dark" style="margin-bottom: 20px">
+        <div class="card-header">
+          Author: {{postAPI.author.name}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{postAPI.title}}</h5>
+          <p class="card-text">{{postAPI.description}}</p>
+        </div>
+        <div class="card-footer text-muted">
+          {{postAPI.updated_at}}
+              
+        </div>
+      </div>
+        <button style="margin-top: 10px; margin-bottom: 20px;" type="button" class="btn btn-outline-secondary" ng-click="destroy()">Delete</button>
+        <a href="#/posts/update/{{postAPI.id}}">
+          <button style="margin-left: 20px; margin-top: 10px; margin-bottom: 20px;" type="button" class="btn btn-outline-secondary">Update</button>
+        </a>
+        <a href="#/posts/{{postAPI.id}}/tags">
+          <button style="margin-left: 20px; margin-top: 10px; margin-bottom: 20px;" type="button" class="btn btn-outline-secondary">Add tags</button>
+        </a>
+        <p>Tags: 
+          <a ng-repeat="tag in tags" style="text-decoration:none; color: inherit;">
+            {{tag.name}};
+          </a>
+      </p> 
+      
+<hr>
+      <div class="comments">
+          <h4>Comments</h4>
+
+        <div ng-controller="CommentsController" style="margin-bottom: 30px;">
+          <div class="card text-center text-dark bg-info" style="margin-top: 20px">
+            <div class="card-header">
+                New comment
+            </div>
+            <div class="card-body">
+              <label for="exampleInputEmail1">Write the text</label>
+              <input style="margin-top: 20px;" placeholder="Comment" type="text" class="form-control" ng-model="newCom.text" required/>
+              <button style="margin-top: 20px;" type="button" class="btn btn-outline-primary" ng-click="create()">Create comment</button>
+            </div>
+          </div>
+
+          <div ng-repeat="comment in comments" class="card text-center text-dark bg-info" style="margin-top: 20px">
+            <div class="card-header">
+              By: {{comment.user.name}}
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{comment.text}}</p>
+            </div>
+            <div class="card-footer text-muted">
+              {{comment.updated_at}}
+              <button style="margin-left: 20px;" type="button" class="btn btn-outline-primary" ng-click="destroy(comment.id)">Delete</button>
+              <a href="#/posts/{{postAPI.id}}/comments/{{comment.id}}">
+                <button style="margin-left: 20px;" type="button" class="btn btn-outline-primary">Update</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,14 @@
+<div ng-controller="PostsController">
+  <h1>Create post</h1>
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Write the title</label>
+          <input type="text" class="form-control" ng-model="newPost.title" required/>
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+          <label for="exampleInputEmail1">Write the text</label>
+          <input type="text" class="form-control" ng-model="newPost.description" required/>
+        </div>
+        <button style="margin-top: 20px;" type="button" class="btn btn-outline-primary" ng-click="create()">Create</button>
+    </form>
+</div>

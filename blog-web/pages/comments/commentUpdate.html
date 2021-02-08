@@ -1,0 +1,10 @@
+<div ng-controller="CommentsController">
+    <h1>Update comment</h1>
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Change the text</label>
+          <input type="text" class="form-control" ng-model="newCom.text" placeholder="Comment" required/>
+        </div>
+        <button style="margin-top: 20px;" type="button" class="btn btn-outline-primary" ng-click="update()">Update</button>
+    </form>
+  </div>

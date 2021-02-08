@@ -1,0 +1,11 @@
+<div ng-controller="PostsController">
+    <h1>Click on the tag to add or remove it to the post</h1>
+    <div class="btn-group me-2" role="group" aria-label="First group" ng-repeat="tag in tagsAll">
+        <button type="button" class="btn btn-outline-secondary" ng-click="actionsTag(tag.id, tag.name)">{{tag.name}}</button>
+    </div>
+    <div style="margin-top: 20px;">Tags: 
+        <a ng-repeat="tag in tags" style="text-decoration:none; color: inherit;">
+            {{tag.name}};
+        </a>
+    </div>
+</div>
